@@ -5,22 +5,14 @@ pipeline {
         // Install the Maven version configured as "M3" and add it to the path.
         maven "3.9.2"
     }
-
-    stages {
-        stage('Git Checkout') {
-            steps {
-        
-                
-            }
-        }
         stage{'Clean and Install'} {
             steps {
-                bat 'mvn Clean Install'
+                sh 'mvn Clean Install'
             }
         }
         stage('package') {
             steps {
-                bat 'mvn package'
+                sh 'mvn package'
             }
         }
             
