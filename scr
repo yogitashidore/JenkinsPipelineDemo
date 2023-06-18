@@ -1,0 +1,27 @@
+ipeline {
+    agent any
+
+    tools {
+        maven "3.9.2"
+    }
+
+    stages {
+        stage('Git Checkout') {
+            steps {
+                git branch: '*/main', url: 'https://github.com/yogitashidore/JenkinsPipelineDemo.git'
+            }
+        }
+        stage{'clean and Install'} {
+            steps {
+                sh 'mvn clean Install'
+            }
+        }
+            stage{'package'} {
+                steps {
+                    sh 'mvn package'
+                }
+            }
+                
+        }
+    }
+
